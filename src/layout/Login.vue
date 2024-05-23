@@ -5,7 +5,7 @@ let loading: boolean = false
 let version: string = import.meta.env.VITE_APP_VERSION
 
 function login() {
-   console.log('Login');
+   console.log(user, password);
 }
 </script>
 
@@ -24,7 +24,7 @@ function login() {
                            <div class="card-body">
                               <form @submit.prevent="login">
                                  <div class="mb-3">
-                                    <label for="usuario" class="form-label">Usuario</label>
+                                    <label for="user" class="form-label">Usuario</label>
                                     <div class="input-group">
                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
                                        <input v-model="user" type="text" class="form-control" required>
