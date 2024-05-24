@@ -3,7 +3,7 @@ import type { DataError } from "../../core/domain/DataError";
 import type { IAuthRepository } from "../../domain/repository/IAuthRepository";
 import type CustomAxios from "../../core/utility/CustomAxios";
 import { LoginResponseModel } from "../models/auth/LoginResponseModel";
-import type { ResetPasswordRequest, loginRequest } from "../../domain/entities/auth";
+import type { ResetPasswordRequest, LoginRequest } from "../../domain/entities/auth";
 import { BaseRepository } from "../../core/data/BaseRepository";
 
 export class AuthRepository extends BaseRepository implements IAuthRepository {
@@ -11,7 +11,7 @@ export class AuthRepository extends BaseRepository implements IAuthRepository {
       super({ axios });
    };
 
-   async login(payload: loginRequest): Promise<Either<DataError, string>> {
+   async login(payload: LoginRequest): Promise<Either<DataError, string>> {
       try {
          const { data } = await this.axios.post('/auth/sign-in', payload);
          const result = LoginResponseModel.fromJson(data);

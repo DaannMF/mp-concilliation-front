@@ -1,13 +1,14 @@
+import { Role } from "../../../domain/entities/enums/Role"
 import type { LoginResponse } from "../../../domain/entities/auth";
 
 export class LoginResponseModel {
    public username: string;
-   public role: string;
+   public role: Role;
    public token: string;
 
    constructor({ username, role, token }: {
       username: string,
-      role: string,
+      role: Role,
       token: string,
    }) {
       this.username = username;

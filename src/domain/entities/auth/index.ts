@@ -1,10 +1,12 @@
-export interface loginRequest {
+import { Role } from "../enums/Role"
+
+export interface LoginRequest {
    username: string;
    password?: string;
 }
 
 export interface LoginResponse {
-   role: string;
+   role: Role;
    token: string;
 }
 
@@ -17,4 +19,8 @@ export interface ErrorData {
 export interface ResetPasswordRequest {
    token: string;
    password: string;
+}
+
+export interface User {
+   username: string;
 }

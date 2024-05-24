@@ -1,14 +1,3 @@
-<script setup lang="ts">
-let user: string | null
-let password: string | null
-let loading: boolean = false
-let version: string = import.meta.env.VITE_APP_VERSION
-
-function login() {
-   console.log(user, password);
-}
-</script>
-
 <template>
    <div>
       <main class="mt-0 main-content main-content-bg">
@@ -59,6 +48,18 @@ function login() {
       </footer>
    </div>
 </template>
+
+<script setup lang="ts">
+let user: string | null
+let password: string | null
+let loading: boolean = false
+let version: string = import.meta.env.VITE_APP_VERSION
+
+function login() {
+   console.log(user, password);
+}
+</script>
+
 
 <style scoped>
 .login-footer {
