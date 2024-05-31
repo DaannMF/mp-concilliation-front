@@ -1,26 +1,25 @@
-import { Role } from "../enums/Role"
-
 export interface LoginRequest {
-   username: string;
-   password?: string;
-}
-
-export interface LoginResponse {
-   role: Role;
-   token: string;
-}
-
-export interface ErrorData {
-   message: string;
-   source: string;
-   value: string;
-}
-
-export interface ResetPasswordRequest {
-   token: string;
-   password: string;
+   username: String;
+   password?: String;
 }
 
 export interface User {
-   username: string;
+   id: Number
+   username: String
+   admin: boolean
+}
+
+export interface LoginResponse {
+   token: String;
+}
+
+export interface ErrorData {
+   message: String;
+   source: String;
+   value: String;
+}
+
+export interface ResetPasswordRequest {
+   token: String;
+   password: String;
 }

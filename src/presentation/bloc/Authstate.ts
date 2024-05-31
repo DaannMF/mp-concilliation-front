@@ -1,12 +1,12 @@
 import type { DataError } from "../../core/domain/DataError";
-import type { User } from "../../domain/entities/auth";
+import { User } from "../../domain/entities/auth"
 import { Base64 } from "js-base64";
 import { defineStore } from "pinia";
 import { useRouter } from "vue-router";
 interface State {
-   password: string,
+   user: User | null,
    username: string,
-   userData: User | null;
+   password: string,
    token?: string | null,
    error?: string,
    serverError?: DataError,
@@ -18,9 +18,9 @@ interface State {
 const useAUthState = defineStore('AuthState', {
    state: (): State => {
       return {
-         password: "",
+         user: null,
          username: "",
-         userData: null,
+         password: "",
          token: null,
          error: undefined,
          serverError: undefined,
@@ -42,11 +42,11 @@ const useAUthState = defineStore('AuthState', {
             return;
          }
 
-         const partsOfToken = token.split('.');
-         const middleString = Base64.decode(partsOfToken[1]);
+         const partsOfToken: string[] = token.split('.');
+         const middleString: string = Base64.decode(partsOfToken[1]);
          const payload = JSON.parse(middleString);
-         const userData = payload;
-         const tokenTimestamp = payload.exp;
+         const userData: User = payload;
+         const tokenTimestamp: number = payload.exp;
          const currentTime = Date.now();
 
          if (tokenTimestamp <= currentTime) {
@@ -56,7 +56,7 @@ const useAUthState = defineStore('AuthState', {
             return;
          }
 
-         this.userData = userData;
+         this.user = userData;
          localStorage.setItem('userData', JSON.stringify(userData));
          this.token = token;
       },

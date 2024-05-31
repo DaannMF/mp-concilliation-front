@@ -7,28 +7,34 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-5 col-lg-5 col-md-8">
                         <div class="card">
-                           <div class="card-header text-center pb-0">
-                              <h3 class="font-weight-bold text-primary">Conciliaci&oacute;n</h3>
-                           </div>
                            <div class="card-body">
-                              <form @submit.prevent="login">
+                              <form :validation-schema="schema"
+                                 @submit.prevent="authPloc.login({ username: state.username, password: state.password });">
+
+                                 <div v-if="state.error" class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50">
+                                    {{ state.error }}
+                                 </div>
+
                                  <div class="mb-3">
-                                    <label for="user" class="form-label">Usuario</label>
+                                    <label for="usuario" class="form-label">Usuario</label>
                                     <div class="input-group">
                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                       <input v-model="user" type="text" class="form-control" required>
+                                       <input v-model="state.username" type="text" class="form-control" id="usuario"
+                                          required>
                                     </div>
                                  </div>
                                  <div class="mb-3">
                                     <label for="password" class="form-label">Contraseña</label>
                                     <div class="input-group">
                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                       <input v-model="password" type="password" class="form-control" required>
+                                       <input v-model="state.password" type="password" class="form-control"
+                                          id="password" required>
                                     </div>
                                  </div>
                                  <div class="text-center">
-                                    <button type="submit" class="btn btn-primary w-100" :disabled="loading">
-                                       <span v-if="loading"><i class="fas fa-spinner fa-spin"></i> </span>
+                                    <button type="submit" class="btn btn-primary w-100"
+                                       :disabled="state.loadingRequest">
+                                       <span v-if="state.loadingRequest"><i class="fas fa-spinner fa-spin"></i> </span>
                                        <span v-else>Ingresar</span>
                                     </button>
                                  </div>
@@ -50,14 +56,27 @@
 </template>
 
 <script setup lang="ts">
-let user: string | null
-let password: string | null
-let loading: boolean = false
-let version: string = import.meta.env.VITE_APP_VERSION
+import { watch } from 'vue';
+import useAUthState from '../bloc/AuthState';
+import { DependencyLocator } from '../../core/dependencies/DependencyLocator';
+import { useRouter } from 'vue-router';
+import { object, string } from 'yup';
 
-function login() {
-   console.log(user, password);
-}
+const state = useAUthState();
+const authPloc = DependencyLocator.provideAuthPloc(state);
+const router = useRouter();
+const version = import.meta.env.VITE_APP_VERSION;
+
+const schema = object().shape({
+   username: string().required(),
+   password: string().required(),
+});
+
+watch(() => state.isAuthenticated, (val) => {
+   if (val) {
+      router.push('/dashboard ');
+   }
+});
 </script>
 
 

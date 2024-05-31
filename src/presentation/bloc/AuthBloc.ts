@@ -1,6 +1,6 @@
 import type { LoginUseCase } from "../../domain/use-cases/auth/LoginUseCase";
-import type { AuthenticationStore } from "./Authstate";
-import type { ResetPasswordRequest, User, LoginRequest } from "../../domain/entities/auth";
+import type { AuthenticationStore } from "./AuthState";
+import type { ResetPasswordRequest, LoginRequest } from "../../domain/entities/auth";
 import { Ploc } from "../../core/Ploc";
 import type { Router } from "vue-router";
 import type { ResetPasswordUseCase } from "../../domain/use-cases/auth/ResetPassWordUseCase";
@@ -38,7 +38,6 @@ export class AuthBloc extends Ploc<AuthenticationStore> {
          (token) => {
             localStorage.setItem('token', token);
             this.store.initAuth();
-            this.store.token = token;
          }
       )
    }
@@ -47,10 +46,6 @@ export class AuthBloc extends Ploc<AuthenticationStore> {
       localStorage.clear();
       this.store.token = "";
       this.store.$reset();
-   }
-
-   prefill(staff: User) {
-      this.store.username = staff?.username;
    }
 
    async resetPassword(payload: ResetPasswordRequest) {
