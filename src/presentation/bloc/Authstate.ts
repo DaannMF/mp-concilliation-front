@@ -47,7 +47,7 @@ const useAUthState = defineStore('AuthState', {
          const payload = JSON.parse(middleString);
          const userData: User = payload;
          const tokenTimestamp: number = payload.exp;
-         const currentTime = Date.now();
+         const currentTime = Date.now() / 1000 | 0;
 
          if (tokenTimestamp <= currentTime) {
             localStorage.clear();
@@ -61,11 +61,9 @@ const useAUthState = defineStore('AuthState', {
          this.token = token;
       },
       logout() {
-         const router = useRouter();
-         this.error = "Your session has expired, Kinldy login Again!";
          localStorage.clear();
          this.token = null;
-         router.push({ name: 'Login' });
+         this.$reset();
       },
    }
 });

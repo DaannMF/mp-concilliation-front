@@ -74,7 +74,7 @@ const schema = object().shape({
 
 watch(() => state.isAuthenticated, (val) => {
    if (val) {
-      router.push('/dashboard ');
+      router.push({ name: 'Dashboard' });
    }
 });
 </script>

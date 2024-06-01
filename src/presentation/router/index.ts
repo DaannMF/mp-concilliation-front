@@ -17,23 +17,23 @@ const routes = [
    },
    {
       path: "/dashboard",
-      name: "DashBoard",
-      meta: { requiresAuth: false, },
+      name: "Dashboard",
+      meta: { requiresAuth: true, },
       component: DashLayout,
-      // children: [
-      //    {
-      //       path: "/pendingS",
-      //       name: "PendingS",
-      //       meta: { requiresAuth: false, },
-      //       component: Pendings,
-      //    },
-      //    {
-      //       path: "/confirmed",
-      //       name: "Concillied",
-      //       meta: { requiresAuth: false, },
-      //       component: ConciliadorConfirmados,
-      //    }
-      // ]
+      children: [
+         {
+            path: "/pendings",
+            name: "Pendings",
+            meta: { requiresAuth: true, },
+            component: NotFound,
+         },
+         {
+            path: "/confirmed",
+            name: "Concillied",
+            meta: { requiresAuth: true, },
+            component: NotFound,
+         }
+      ]
    },
    {
       path: '/:pathMatch(.*)*',

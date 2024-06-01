@@ -1,6 +1,6 @@
 <template>
    <aside id="sidenav-main"
-      class="mt-3 ms-3 mb-0 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl "
+      class="mt-3 mb-0 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl "
       style="z-index:30">
 
       <div class="sidenav-header">

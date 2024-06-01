@@ -35,17 +35,16 @@ export class AuthBloc extends Ploc<AuthenticationStore> {
          error => {
             this.store.error = this.handleErrors(error);
          },
-         (token) => {
-            localStorage.setItem('token', token);
+         (response) => {
+            localStorage.setItem('token', response.token);
             this.store.initAuth();
          }
       )
    }
 
-   logout = () => {
-      localStorage.clear();
-      this.store.token = "";
-      this.store.$reset();
+   logout = async (): Promise<void> => {
+      this.store.logout()
+      this.router.push({ name: 'Login' })
    }
 
    async resetPassword(payload: ResetPasswordRequest) {

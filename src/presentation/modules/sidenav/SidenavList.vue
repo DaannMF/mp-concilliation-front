@@ -2,7 +2,7 @@
    <div id="sidenav-collapse-main" class="w-auto collapse navbar-collapse">
       <ul class="navbar-nav">
          <li v-for="menu in menuList" :key="menu.name" class="nav-item">
-            <SidenavCollapse :nav-text="menu.name" :to="{ name: menu.to }">
+            <SidenavCollapse :nav-text="menu.name" :to="{ name: menu.name }">
                <template #icon>
                   <i :class="menu.icon"></i>
                </template>
