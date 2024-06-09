@@ -63,6 +63,7 @@ const useAUthState = defineStore('AuthState', {
       logout() {
          localStorage.clear();
          this.token = null;
+         this.username = "";
          this.$reset();
       },
    }

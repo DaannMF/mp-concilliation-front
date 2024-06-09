@@ -1,3 +1,10 @@
+// Javascript
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
+
+// Theme
+import './presentation/assets/theme'
+
+// Vue
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import router from './presentation/router'
