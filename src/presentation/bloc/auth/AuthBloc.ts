@@ -1,9 +1,9 @@
-import type { LoginUseCase } from "../../domain/use-cases/auth/LoginUseCase";
+import type { LoginUseCase } from "../../../domain/use-cases/auth/LoginUseCase";
 import type { AuthenticationStore } from "./AuthState";
-import type { ResetPasswordRequest, LoginRequest } from "../../domain/entities/auth";
-import { Ploc } from "../../core/Ploc";
+import type { ResetPasswordRequest, LoginRequest } from "../../../domain/entities/auth";
+import { Ploc } from "../../../core/Ploc";
 import type { Router } from "vue-router";
-import type { ResetPasswordUseCase } from "../../domain/use-cases/auth/ResetPassWordUseCase";
+import type { ResetPasswordUseCase } from "../../../domain/use-cases/auth/ResetPassWordUseCase";
 
 export class AuthBloc extends Ploc<AuthenticationStore> {
    private loginUseCase: LoginUseCase;

@@ -1,18 +1,14 @@
-import type { DataError } from "../../core/domain/DataError";
-import { User } from "../../domain/entities/auth"
+import { User } from "../../../domain/entities/auth"
 import { Base64 } from "js-base64";
 import { defineStore } from "pinia";
-import { useRouter } from "vue-router";
+
 interface State {
    user: User | null,
    username: string,
    password: string,
    token?: string | null,
    error?: string,
-   serverError?: DataError,
-   tokenExpired: Boolean,
    loadingRequest: boolean,
-   regStatus: Boolean,
    successStatus: boolean,
 }
 const useAUthState = defineStore('AuthState', {
@@ -23,10 +19,7 @@ const useAUthState = defineStore('AuthState', {
          password: "",
          token: null,
          error: undefined,
-         serverError: undefined,
-         tokenExpired: false,
          loadingRequest: false,
-         regStatus: false,
          successStatus: false,
       }
    },
@@ -52,7 +45,7 @@ const useAUthState = defineStore('AuthState', {
          if (tokenTimestamp <= currentTime) {
             localStorage.clear();
             this.token = null;
-            this.error = "Your session has expired, Kinldy login Again!";
+            this.error = "Tu sesión ha expirado, por favor ingresa nuevamente.";
             return;
          }
 

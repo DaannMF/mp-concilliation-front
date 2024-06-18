@@ -25,7 +25,7 @@
                      </a>
                   </li>
                   <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                     <a id="iconNavbarSidenav" class="p-0 nav-link text-body" @click="toggleSidebar()">
+                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                         <div class="sidenav-toggler-inner">
                            <i class="sidenav-toggler-line"></i>
                            <i class="sidenav-toggler-line"></i>
@@ -41,32 +41,10 @@
 </template>
 
 <script setup lang="ts">
-import useAUthState from '../bloc/AuthState';
+import useAUthState from '../bloc/auth/AuthState';
 import { DependencyLocator } from '../../core/dependencies/DependencyLocator';
 import { Role } from '../../domain/entities/enums/Role';
 
 const state = useAUthState();
 const authPloc = DependencyLocator.provideAuthPloc(state);
-
-let isPinned: boolean = true;
-
-function toggleSidebar() {
-   const sidenav_show = document.querySelector(".g-sidenav-show");
-   const sidenav = document.getElementById("sidenav-main");
-
-   if (sidenav_show?.classList.contains("g-sidenav-pinned")) {
-      sidenav_show.classList.remove("g-sidenav-pinned");
-      setTimeout(function () {
-         sidenav?.classList.remove("bg-white");
-      }, 100);
-      sidenav?.classList.remove("bg-transparent");
-      isPinned = true;
-   } else {
-      sidenav_show?.classList.add("g-sidenav-pinned");
-      sidenav?.classList.add("bg-white");
-      sidenav?.classList.remove("bg-transparent");
-      isPinned = false;
-   }
-}
-
 </script>

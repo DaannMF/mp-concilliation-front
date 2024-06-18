@@ -1,4 +1,4 @@
 export const menuList = [
-   { "name": "Pendings", "to": "pendings", "icon": "fa-solid fa-server" },
-   { "name": "Concillied", "to": "concillied", "icon": "fa-solid fa-server" },
+   { "to": "Pendings", "nav_text": "Pendientes", "icon": "fa-solid fa-server" },
+   { "to": "Concillied", "nav_text": "Consolidados", "icon": "fa-solid fa-server" },
 ];

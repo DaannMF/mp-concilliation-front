@@ -10,11 +10,6 @@
                            <div class="card-body">
                               <form :validation-schema="schema"
                                  @submit.prevent="authPloc.login({ username: state.username, password: state.password });">
-
-                                 <div v-if="state.error" class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50">
-                                    {{ state.error }}
-                                 </div>
-
                                  <div class="mb-3">
                                     <label for="usuario" class="form-label">Usuario</label>
                                     <div class="input-group">
@@ -37,6 +32,10 @@
                                        <span v-if="state.loadingRequest"><i class="fas fa-spinner fa-spin"></i> </span>
                                        <span v-else>Ingresar</span>
                                     </button>
+
+                                    <div v-if="state.error" class="text-danger">
+                                       {{ state.error }}
+                                    </div>
                                  </div>
                               </form>
                            </div>
@@ -57,7 +56,7 @@
 
 <script setup lang="ts">
 import { watch } from 'vue';
-import useAUthState from '../bloc/AuthState';
+import useAUthState from '../bloc/auth/AuthState';
 import { DependencyLocator } from '../../core/dependencies/DependencyLocator';
 import { useRouter } from 'vue-router';
 import { object, string } from 'yup';
