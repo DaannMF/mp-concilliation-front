@@ -31,8 +31,8 @@
                         <template #item-action="item">
                            <button type="button" @click="state.focus_payment_id = item.payment_id"
                               data-bs-toggle="modal" data-bs-target="#confirm_payment"
-                              class="bg-primary rounded text-light text-bold border-0">
-                              Conciliar
+                              class="bg-danger rounded text-light text-bold border-0">
+                              Desconciliar
                            </button>
                         </template>
 
@@ -58,11 +58,13 @@ import ConfirmModal from "../../components/shared/modal/ConfirmModal.vue"
 
 import { Header } from "vue3-easy-data-table";
 import { ref } from "vue";
+import { ConcilliedStatus } from '../../../domain/entities/enums/ConcilliedStatus';
 
 const state = usePaymentState();
 const authPloc = DependencyLocator.providePaymentPloc(state)
 const searchValue = ref("")
 
+state.searchStatus = ConcilliedStatus.Concillied
 authPloc.searchPayments()
 
 const SearchFields: string[] = [
@@ -78,8 +80,8 @@ const Headers: Header[] = [
       sortable: true,
    },
    {
-      value: "payment_status",
-      text: "Estado",
+      value: "money_release_date",
+      text: "Fecha",
       sortable: true,
    },
    {
@@ -88,8 +90,18 @@ const Headers: Header[] = [
       sortable: true,
    },
    {
-      value: "money_release_date",
-      text: "Fecha",
+      value: "payment_status",
+      text: "Estado",
+      sortable: true,
+   },
+   {
+      value: "payer_email",
+      text: "Email",
+      sortable: true,
+   },
+   {
+      value: "payer_identification_number",
+      text: "CUIL/CUIT",
       sortable: true,
    },
    {

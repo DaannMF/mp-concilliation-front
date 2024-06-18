@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import SideNav from '../modules/sidenav/SideNav.vue'
-import NavBar from '../modules/NavBar.vue'
+import SideNav from "../components/shared/sidenav/SideNav.vue"
+import NavBar from "../components/NavBar.vue"
 
 </script>

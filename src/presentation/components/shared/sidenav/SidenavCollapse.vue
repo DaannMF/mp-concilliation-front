@@ -1,7 +1,7 @@
 <template>
    <router-link class="nav-link" :to="props.to">
       <div
-         class="me-2 bg-gradient-primary text-white icon-font-1 text-center bg-white shadow icon icon-shape icon-sm border-radius-md d-flex align-items-center justify-content-center">
+         class="me-2 text-white icon-font-1 text-center shadow icon icon-shape icon-sm border-radius-md d-flex align-items-center justify-content-center">
          <slot name="icon"></slot>
       </div>
       <span class="nav-link-text ms-1">{{ props.navText }}</span>

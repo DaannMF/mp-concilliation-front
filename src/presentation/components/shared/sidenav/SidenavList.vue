@@ -14,6 +14,6 @@
 
 <script setup lang="ts">
 import SidenavCollapse from "./SidenavCollapse.vue";
-import { menuList } from "../../router/menu_list"
+import { menuList } from "../../../router/menu_list"
 
 </script>

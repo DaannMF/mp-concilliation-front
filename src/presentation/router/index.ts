@@ -6,20 +6,21 @@ import DashLayout from "../layout/DashLayout.vue"
 
 // Components
 import Login from "../modules/Login.vue";
-import NotFound from "../NotFound.vue"
 import Pendings from "../modules/pendings/Pendings.vue";
+import Concillied from "../modules/concillied/Concillied.vue";
+import NotFound from "../components/NotFound.vue"
 
 const routes: Array<RouteRecordRaw> = [
+   {
+      path: "/",
+      name: "redirect-to-dashboard",
+      redirect: { name: "Dashboard" },
+   },
    {
       path: "/login",
       name: "Login",
       meta: { requiresAuth: false, },
       component: Login,
-   },
-   {
-      path: "/",
-      name: "redirect-to-dashboard",
-      redirect: { name: "Dashboard" },
    },
    {
       path: "/dashboard",
@@ -38,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
             path: "/confirmed",
             name: "Concillied",
             meta: { requiresAuth: true, },
-            component: NotFound,
+            component: Concillied,
          }
       ]
    },

@@ -7,7 +7,7 @@
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-               Está apunto de conciliar el pago, ¿Desea continuar?
+               Está apunto de actualizar el pago, ¿Desea continuar?
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

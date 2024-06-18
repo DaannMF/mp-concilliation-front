@@ -48,7 +48,7 @@
       </main>
       <footer class="py-5 login-footer text-center">
          <div class="container">
-            <p class="mb-0 text-secondary">{{ "Mercado Pago Conciliator - Version " + version }}</p>
+            <p class="mb-0 text-secondary">{{ "Conciliador de Pagos - Powered By Railway + MercadoPago" }}</p>
          </div>
       </footer>
    </div>
@@ -64,7 +64,6 @@ import { object, string } from 'yup';
 const state = useAUthState();
 const authPloc = DependencyLocator.provideAuthPloc(state);
 const router = useRouter();
-const version = import.meta.env.VITE_APP_VERSION;
 
 const schema = object().shape({
    username: string().required(),
