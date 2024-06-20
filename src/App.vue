@@ -3,7 +3,7 @@
       <RouterView />
    </div>
 
-   <notifications position="bottom right" />
+   <notifications position="top right" />
 </template>
 
 <style lang="scss">

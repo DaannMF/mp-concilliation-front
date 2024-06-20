@@ -11,9 +11,9 @@
                   <li class="nav-item d-flex align-items-center">
                      <div class="px-3 nav-link font-weight-bold">
                         <i class="fa fa-user" :class="'me-sm-1'"></i>
-                        <span class="d-sm-inline d-none">{{ state.username }}</span>
+                        <span class="d-sm-inline d-none">{{ state.user?.username }}</span>
                      </div>
-                     <div class="px-0 nav-link font-weight-bold">
+                     <div class="px-0 nav-link font-weight-bold text-warning">
                         <i class="fa-solid fa-user-pen" :class="'me-sm-1'"></i>
                         <span class="d-sm-inline d-none">{{ state.user?.admin ? Role.Admin : '' }}</span>
                      </div>

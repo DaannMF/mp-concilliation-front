@@ -37,7 +37,6 @@ export class AuthBloc extends Ploc<AuthenticationStore> {
          },
          (response) => {
             localStorage.setItem('token', response.token);
-            this.store.username = payload.username
             this.store.initAuth();
          }
       )

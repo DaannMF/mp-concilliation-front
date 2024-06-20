@@ -79,6 +79,10 @@ watch(() => state.isAuthenticated, (val) => {
 
 
 <style scoped>
+input::placeholder{
+   padding-left: 5px;
+}
+
 .login-footer {
    position: fixed;
    bottom: 1px;

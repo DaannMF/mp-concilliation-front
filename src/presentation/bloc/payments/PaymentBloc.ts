@@ -56,6 +56,7 @@ export class PaymentBloc extends Ploc<PaymentStore> {
          (_) => {
             this.notify.success("El pago se actualizó de manera correcta");
          });
+
       this.searchPayments()
    }
 }
