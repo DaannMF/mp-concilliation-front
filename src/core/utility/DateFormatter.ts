@@ -9,7 +9,7 @@ const formatDate = (value: string): string => {
       return '';
    }
 
-   return new Date(value).toLocaleTimeString('en-ES', options);
+   return new Date(value).toLocaleTimeString('es-AR', options);
 }
 
 export default formatDate;

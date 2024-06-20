@@ -90,11 +90,6 @@ const Headers: Header[] = [
       sortable: true,
    },
    {
-      value: "payment_status",
-      text: "Estado",
-      sortable: true,
-   },
-   {
       value: "payer_email",
       text: "Email",
       sortable: true,

@@ -78,8 +78,8 @@ const Headers: Header[] = [
       sortable: true,
    },
    {
-      value: "payment_status",
-      text: "Estado",
+      value: "money_release_date",
+      text: "Fecha",
       sortable: true,
    },
    {
@@ -88,8 +88,13 @@ const Headers: Header[] = [
       sortable: true,
    },
    {
-      value: "money_release_date",
-      text: "Fecha",
+      value: "payer_email",
+      text: "Email",
+      sortable: true,
+   },
+   {
+      value: "payer_identification_number",
+      text: "CUIL/CUIT",
       sortable: true,
    },
    {
