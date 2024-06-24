@@ -9,6 +9,6 @@
 
 <script setup lang="ts">
 import SideNav from "../components/shared/sidenav/SideNav.vue"
-import NavBar from "../components/NavBar.vue"
+import NavBar from "../components/shared/navbar/NavBar.vue"
 
 </script>

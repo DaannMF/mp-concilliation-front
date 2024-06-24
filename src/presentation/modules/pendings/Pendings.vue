@@ -58,11 +58,13 @@ import ConfirmModal from "../../components/shared/modal/ConfirmModal.vue"
 
 import { Header } from "vue3-easy-data-table";
 import { ref } from "vue";
+import { ConcilliedStatus } from '../../../domain/entities/enums/ConcilliedStatus';
 
 const state = usePaymentState();
 const authPloc = DependencyLocator.providePaymentPloc(state)
 const searchValue = ref("")
 
+state.searchStatus = ConcilliedStatus.Pending
 authPloc.searchPayments()
 
 const SearchFields: string[] = [
